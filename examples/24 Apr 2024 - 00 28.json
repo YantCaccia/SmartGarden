@@ -1,0 +1,27 @@
+{
+    "1": {
+        "temperature": "25",
+        "humidity": "30",
+        "PotID": "1",
+        "light": "40",
+        "coverStatus": "open",
+        "latestIrrigation": "Mon 14 Apr 2024, 20:01"
+    },
+    "0": {
+        "temperature": "18",
+        "humidity": "25",
+        "PotID": "0",
+        "light": "30",
+        "coverStatus": "open",
+        "latestIrrigation": "Tue 16 Apr 2024, 18:56"
+    },
+    "2": {
+        "temperature": "15",
+        "humidity": "35",
+        "PotID": "2",
+        "light": "45",
+        "coverStatus": "closed",
+        "latestIrrigation": "Fri 19 Apr 2024, 15:32"
+    },
+    "created_at": "Wed 24 Apr 2024, 00:28"
+}
