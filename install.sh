@@ -36,7 +36,7 @@ awslocal dynamodb create-table \
 # Create SQS
 echo "\nCreating SQS queue"
 WateringQueueCreationOutput=$(awslocal sqs create-queue --queue-name WateringQueue --region $region)
-export WateringQueueURL=$(echo "$WateringQueueCreationOutput" | jq -r '.QueueUrl')
+WateringQueueURL=$(echo "$WateringQueueCreationOutput" | jq -r '.QueueUrl')
 WateringQueueARN=$(awslocal sqs get-queue-attributes \
     --queue-url $WateringQueueURL \
     --attribute-name QueueArn | jq -r '.Attributes.QueueArn')
@@ -284,7 +284,7 @@ awslocal apigateway put-integration --rest-api-id $api_id1 --resource-id $Downlo
 
 AWS_GATEWAY_URL="http://localhost:4566/restapis/$api_id1/test/_user_request_/"
 echo "\n\nAPI Gateway URL: $AWS_GATEWAY_URL\n\n"
-echo "AWS_GATEWAY_URL=$AWS_GATEWAY_URL" >> ./.env
+echo "\nAWS_GATEWAY_URL=$AWS_GATEWAY_URL" >> ./.env
 
 
 # Remove tmp files

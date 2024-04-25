@@ -28,7 +28,6 @@ def actuator_activation_is_needed(item: dict, actuator: str, statusAfterUpdate: 
         return datetime.now() - latestIrrigation > timedelta(minutes=30)
         
     
-
 def update_item(potID: int, attribute: str, value: int):
     return Utilities.dynamodb.update_item(
     TableName='Pots',
