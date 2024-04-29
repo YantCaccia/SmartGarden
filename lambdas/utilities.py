@@ -1,4 +1,4 @@
-import urllib3, os, boto3
+import urllib3, os, boto3, logging
 
 
 class Utilities:
@@ -8,3 +8,5 @@ class Utilities:
     sqs = boto3.resource('sqs', endpoint_url=endpoint_url, region_name='eu-central-1')
     queue = sqs.get_queue_by_name(QueueName='WateringQueue')
     s3 = boto3.client('s3', endpoint_url=endpoint_url, region_name='eu-central-1')
+    logging.basicConfig(level=logging.DEBUG)
+    logger = logging.getLogger(__name__)

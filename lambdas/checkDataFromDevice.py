@@ -94,10 +94,11 @@ def lambda_handler(event, context):
         try:
             print(f"Processed Kinesis Event - EventID: {record['eventID']}")
             record_data = base64.b64decode(record['kinesis']['data']).decode('utf-8')
-            return check_params(sensorData(**json.loads(record_data)))
+            check_params(sensorData(**json.loads(record_data)))
         
         except Exception as e:
             print(f"An error occurred {e}")
-            raise e
+            Utilities.logger.exception(e)
+            return
     print(f"Successfully processed {len(event['Records'])} records.")
     return
